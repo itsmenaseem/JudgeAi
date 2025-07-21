@@ -29,25 +29,7 @@ It is fully containerized using Docker & Docker Compose, with isolated frontend 
 - **Execution Engine**: GCC, Python3, Java (installed in Docker image)  
 - **DevOps**: Docker, Docker Compose
 
----
 
-## 📁 Folder Structure
-
-JudgeAI/
-├── backend/
-│ ├── index.js
-│ ├── package.json
-│ └── Dockerfile
-├── frontend/
-│ ├── src/
-│ ├── package.json
-│ └── Dockerfile
-├── docker-compose.yml
-└── README.md
-
-
-
----
 
 ## 🧑‍💻 How to Run the Project Locally
 
@@ -59,12 +41,12 @@ Make sure you have the following installed:
 - [Docker Compose](https://docs.docker.com/compose/)
 
 ---
-
+---
 ### 🚀 Steps to Run
 
 1. **Clone the Repository**
 
-```bash
+
 git clone https://github.com/itsmenaseem/JudgeAI.git
 cd JudgeAI
 
