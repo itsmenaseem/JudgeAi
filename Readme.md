@@ -1,27 +1,99 @@
-# JudgeAI – Full-Stack Code Execution Platform with AI Review (Dockerized)
+# 🧠 JudgeAI – Full-Stack Code Execution Platform with AI Review (Dockerized)
 
-## Description
+## 📘 Description
 
-JudgeAI is a full-stack web application that allows users to write, run, and test code in multiple programming languages (C++, Python, Java) directly in the browser. The platform is fully containerized using Docker and Docker Compose, separating the frontend and backend services for modular development and deployment.
+**JudgeAI** is a full-stack cloud-based code execution platform that allows users to write, run, and test code in multiple languages — **C++**, **Python**, and **Java** — directly from their browser.
 
-The backend securely executes user-submitted code in isolated environments using dynamic file creation and compilation, while the frontend provides a clean, interactive code editor built with React and Vite. AI integration (planned/optional) allows real-time code reviews or feedback using large language models (LLMs).
+It is fully containerized using Docker & Docker Compose, with isolated frontend and backend services. Secure code execution is handled via dynamic file generation and language-specific compilers/interpreters inside the container.
 
-## Key Features
-
-- 🐳 **Dockerized microservices:** Isolated frontend and backend for clean separation  
-- 🧠 **Multi-language support:** C++, Python, and Java using dynamic compilation and execution  
-- 🔒 **Secure code execution:** File sandboxing and UUID-based temporary directories  
-- ⚙️ **Standard input/output support:** For running interactive code  
-- ⚡ **Fast live-reloading frontend:** Built with Vite and React  
-- 📦 **Volume mounting:** Node_modules isolation for proper hot-reload behavior in Docker  
-- 🤖 **Optional AI-powered code review:** Integration with LLM APIs like Gemini or OpenAI  
-- 📂 **Extensible architecture:** Ready for features like user authentication, submission history, and leaderboards  
-
-## Tech Stack
-
-- **Frontend:** React.js, Vite, Tailwind CSS (optional), Docker  
-- **Backend:** Node.js, Express, Docker, `child_process`, UUID, FS modules  
-- **Execution Engine:** GCC, Python3, Java (installed inside Docker image)  
-- **DevOps:** Docker, Docker Compose  
+🚀 **Planned Feature**: Optional AI-powered code reviews using Gemini or OpenAI APIs.
 
 ---
+
+## 🚀 Features
+
+- 🐳 Dockerized microservices: Isolated frontend and backend for clean separation  
+- 🧠 Multi-language support: C++, Python, and Java using dynamic compilation and execution  
+- 🔒 Secure code execution via file sandboxing and UUID-based temp directories  
+- ⚙️ Built-in support for standard input and output  
+- ⚡ Fast, live-reloading frontend with Vite + React  
+- 📦 Volume mounting with node_modules isolation for proper hot-reload behavior in Docker  
+- 🤖 AI-Powered Code Review using LLM APIs like Gemini or OpenAI  
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React.js, Vite, Tailwind CSS (optional), Docker  
+- **Backend**: Node.js, Express, Docker, `child_process`, UUID, FS modules  
+- **Execution Engine**: GCC, Python3, Java (installed in Docker image)  
+- **DevOps**: Docker, Docker Compose
+
+---
+
+## 📁 Folder Structure
+
+JudgeAI/
+├── backend/
+│ ├── index.js
+│ ├── package.json
+│ └── Dockerfile
+├── frontend/
+│ ├── src/
+│ ├── package.json
+│ └── Dockerfile
+├── docker-compose.yml
+└── README.md
+
+
+
+---
+
+## 🧑‍💻 How to Run the Project Locally
+
+### 📦 Prerequisites
+
+Make sure you have the following installed:
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+---
+
+### 🚀 Steps to Run
+
+1. **Clone the Repository**
+
+```bash
+git clone https://github.com/itsmenaseem/JudgeAI.git
+cd JudgeAI
+
+2. Build and Start the Containers
+
+docker-compose up --build
+
+Frontend will be running at: http://localhost:5173
+
+Backend will be running at: http://localhost:4000
+
+docker-compose down
+
+
+---
+
+## 📚 Credits
+
+This project was built as part of a learning journey and personal initiative to understand secure cloud-based code execution.
+
+Special thanks to:
+
+- [Monaco Editor](https://microsoft.github.io/monaco-editor/) for the powerful in-browser code editor  
+- [Docker](https://www.docker.com/) for containerization and isolated code execution  
+- [Vite](https://vitejs.dev/) for blazing-fast frontend development  
+- [OpenAI](https://openai.com/) / [Gemini](https://deepmind.google/) (planned) for future AI code reviews  
+
+---
+
+### 🙋‍♂️ Author
+
+Built with ❤️ by [Naseem Siddiqui](https://github.com/itsmenaseem)
