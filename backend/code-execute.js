@@ -2,7 +2,20 @@ import { exec } from "node:child_process";
 import { v4 as uuidv4 } from "uuid";
 import path from "path";
 import fs from "fs/promises";
+import os from "os"
 //for Ubuntu ./Main window .\\Main python3
+let platform = os.platform()
+let cppRunner;
+let pythonRunner;
+if(platform === "win32"){
+  cppRunner = ".\\Main < input.txt"
+  pythonRunner = "python Main.py < input.txt"
+}
+else if(platform === "linux"){
+  cppRunner = ".\Main < input.txt"
+  pythonRunner = "python3 Main.py < input.txt"
+}
+
 async function cppCode(res, tempDir) {
   exec(`g++ Main.cpp -o Main`, { cwd: tempDir }, async (compileErr, stdout, stderr) => {
     if (compileErr) {
@@ -11,7 +24,7 @@ async function cppCode(res, tempDir) {
       return res.status(400).json({ error: "Compilation failed", details: stderr });
     }
 
-    exec(`./Main < input.txt`, { cwd: tempDir }, async (runErr, stdout, stderr) => {
+    exec(cppRunner, { cwd: tempDir }, async (runErr, stdout, stderr) => {
       await fs.rm(tempDir, { recursive: true, force: true });
       if (runErr) {
         console.error("Runtime Error:", stderr);
@@ -23,7 +36,7 @@ async function cppCode(res, tempDir) {
 }
 
 async function pythonCode(res, tempDir) {
-  exec("python3 Main.py < input.txt", { cwd: tempDir }, async (error, stdout, stderr) => {
+  exec(pythonRunner, { cwd: tempDir }, async (error, stdout, stderr) => {
     await fs.rm(tempDir, { recursive: true, force: true });
     if (error) {
       return res.status(400).json({ error: "Runtime Error", details: stderr });
